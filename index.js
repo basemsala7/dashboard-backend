@@ -173,6 +173,12 @@ app.post("/api/products", (req, res) => {
   products.unshift(req.body);
   res.json(products);
 });
+app.post("/api/login", (req, res) => {
+  const { email } = req.body;
+  const jwtSecretKey = "P@ssword123";
+  const token = jwt.sign(email, jwtSecretKey);
+  res.json({ message: "Login Successfuly", token });
+});
 
 // DELETE PRODUCT
 app.delete("/api/products/:id", (req, res) => {
@@ -184,10 +190,4 @@ app.delete("/api/products/:id", (req, res) => {
 
 app.listen(8800, () => {
   console.log("Connected to backend.");
-});
-app.post("/api/login", (req, res) => {
-  const { email } = req.body;
-  const jwtSecretKey = "P@ssword123";
-  const token = jwt.sign(email, jwtSecretKey);
-  res.json({ message: "Login Successfuly", token });
 });
