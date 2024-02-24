@@ -182,7 +182,7 @@ app.delete("/api/products/:id", (req, res) => {
   res.json("Product deleted!");
 });
 
-app.listen(process.env.PORT || 8800, () => {
+app.listen(8800, () => {
   console.log("Connected to backend.");
 });
 app.post("/api/login", (req, res) => {
