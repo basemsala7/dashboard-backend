@@ -187,7 +187,10 @@ app.delete("/api/products/:id", (req, res) => {
   );
   res.json("Product deleted!");
 });
-
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+export default app;
 app.listen(8800, () => {
   console.log("Connected to backend.");
 });
